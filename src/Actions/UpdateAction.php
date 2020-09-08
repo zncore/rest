@@ -1,10 +1,10 @@
 <?php
 
-namespace PhpLab\Rest\Actions;
+namespace ZnLib\Rest\Actions;
 
-use PhpLab\Core\Domain\Exceptions\UnprocessibleEntityException;
-use PhpLab\Rest\Libs\Serializer\JsonRestSerializer;
-use PhpLab\Core\Exceptions\NotFoundException;
+use ZnCore\Base\Domain\Exceptions\UnprocessibleEntityException;
+use ZnLib\Rest\Libs\Serializer\JsonRestSerializer;
+use ZnCore\Base\Exceptions\NotFoundException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 

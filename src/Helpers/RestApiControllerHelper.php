@@ -1,10 +1,10 @@
 <?php
 
-namespace PhpLab\Rest\Helpers;
+namespace ZnLib\Rest\Helpers;
 
 use Illuminate\Container\Container;
-use PhpLab\Core\Enums\Http\HttpStatusCodeEnum;
-use PhpLab\Rest\Entities\RouteEntity;
+use ZnCore\Base\Enums\Http\HttpStatusCodeEnum;
+use ZnLib\Rest\Entities\RouteEntity;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

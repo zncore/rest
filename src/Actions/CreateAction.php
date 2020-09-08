@@ -1,11 +1,11 @@
 <?php
 
-namespace PhpLab\Rest\Actions;
+namespace ZnLib\Rest\Actions;
 
-use PhpLab\Core\Domain\Exceptions\UnprocessibleEntityException;
-use PhpLab\Rest\Base\BaseAction;
-use PhpLab\Rest\Libs\Serializer\JsonRestSerializer;
-use PhpLab\Core\Enums\Http\HttpHeaderEnum;
+use ZnCore\Base\Domain\Exceptions\UnprocessibleEntityException;
+use ZnLib\Rest\Base\BaseAction;
+use ZnLib\Rest\Libs\Serializer\JsonRestSerializer;
+use ZnCore\Base\Enums\Http\HttpHeaderEnum;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 

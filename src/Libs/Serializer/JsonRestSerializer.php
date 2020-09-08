@@ -1,17 +1,17 @@
 <?php
 
-namespace PhpLab\Rest\Libs\Serializer;
+namespace ZnLib\Rest\Libs\Serializer;
 
-use PhpLab\Core\Legacy\Yii\Helpers\ArrayHelper;
-use PhpLab\Core\Libs\Serializer\Handlers\ArrayHandler;
-use PhpLab\Core\Libs\Serializer\Handlers\ObjectHandler;
-use PhpLab\Core\Domain\Entities\DataProviderEntity;
-use PhpLab\Core\Domain\Exceptions\UnprocessibleEntityException;
-use PhpLab\Rest\Entities\ExceptionEntity;
-use PhpLab\Rest\Libs\Serializer\Handlers\TimeHandler;
-use PhpLab\Core\Exceptions\NotFoundException;
-use PhpBundle\User\Domain\Exceptions\UnauthorizedException;
-use PhpLab\Core\Enums\Http\HttpHeaderEnum;
+use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
+use ZnCore\Base\Libs\Serializer\Handlers\ArrayHandler;
+use ZnCore\Base\Libs\Serializer\Handlers\ObjectHandler;
+use ZnCore\Base\Domain\Entities\DataProviderEntity;
+use ZnCore\Base\Domain\Exceptions\UnprocessibleEntityException;
+use ZnLib\Rest\Entities\ExceptionEntity;
+use ZnLib\Rest\Libs\Serializer\Handlers\TimeHandler;
+use ZnCore\Base\Exceptions\NotFoundException;
+use ZnBundle\User\Domain\Exceptions\UnauthorizedException;
+use ZnCore\Base\Enums\Http\HttpHeaderEnum;
 use Symfony\Component\Debug\Exception\FlattenException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;

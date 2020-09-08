@@ -1,16 +1,16 @@
 <?php
 
-namespace PhpLab\Rest\Base;
+namespace ZnLib\Rest\Base;
 
-use PhpLab\Core\Domain\Helpers\QueryHelper;
-use PhpLab\Core\Domain\Libs\Query;
-use PhpLab\Core\Domain\Interfaces\Service\CrudServiceInterface;
+use ZnCore\Base\Domain\Helpers\QueryHelper;
+use ZnCore\Base\Domain\Libs\Query;
+use ZnCore\Base\Domain\Interfaces\Service\CrudServiceInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class BaseAction
- * @package PhpLab\Rest\Actions
+ * @package ZnLib\Rest\Actions
  *
  * @property CrudServiceInterface $service
  */

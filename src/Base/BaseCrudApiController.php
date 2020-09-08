@@ -1,15 +1,15 @@
 <?php
 
-namespace PhpLab\Rest\Base;
+namespace ZnLib\Rest\Base;
 
-use PhpLab\Rest\Base\BaseAction;
-use PhpLab\Rest\Actions\BaseEntityAction;
-use PhpLab\Rest\Actions\CreateAction;
-use PhpLab\Rest\Actions\DeleteAction;
-use PhpLab\Rest\Actions\IndexAction;
-use PhpLab\Rest\Actions\OptionsAction;
-use PhpLab\Rest\Actions\UpdateAction;
-use PhpLab\Rest\Actions\ViewAction;
+use ZnLib\Rest\Base\BaseAction;
+use ZnLib\Rest\Actions\BaseEntityAction;
+use ZnLib\Rest\Actions\CreateAction;
+use ZnLib\Rest\Actions\DeleteAction;
+use ZnLib\Rest\Actions\IndexAction;
+use ZnLib\Rest\Actions\OptionsAction;
+use ZnLib\Rest\Actions\UpdateAction;
+use ZnLib\Rest\Actions\ViewAction;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 

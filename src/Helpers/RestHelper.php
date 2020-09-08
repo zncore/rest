@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpLab\Rest\Helpers;
+namespace ZnLib\Rest\Helpers;
 
 class RestHelper
 {

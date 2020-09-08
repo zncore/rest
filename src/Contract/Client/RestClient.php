@@ -1,15 +1,15 @@
 <?php
 
-namespace PhpLab\Rest\Contract\Client;
+namespace ZnLib\Rest\Contract\Client;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\RequestOptions;
-use PhpLab\Core\Enums\Http\HttpHeaderEnum;
-use PhpLab\Core\Enums\Http\HttpMethodEnum;
-use PhpLab\Core\Enums\Http\HttpStatusCodeEnum;
-use PhpLab\Rest\Contract\Authorization\AuthorizationInterface;
+use ZnCore\Base\Enums\Http\HttpHeaderEnum;
+use ZnCore\Base\Enums\Http\HttpMethodEnum;
+use ZnCore\Base\Enums\Http\HttpStatusCodeEnum;
+use ZnLib\Rest\Contract\Authorization\AuthorizationInterface;
 use Psr\Http\Message\ResponseInterface;
 
 class RestClient

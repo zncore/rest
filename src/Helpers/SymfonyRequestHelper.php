@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpLab\Rest\Helpers;
+namespace ZnLib\Rest\Helpers;
 
 use Symfony\Component\ErrorHandler\Debug;
 use Symfony\Component\HttpFoundation\Request;

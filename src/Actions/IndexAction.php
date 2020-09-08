@@ -1,10 +1,10 @@
 <?php
 
-namespace PhpLab\Rest\Actions;
+namespace ZnLib\Rest\Actions;
 
-use PhpLab\Core\Domain\Libs\DataProvider;
-use PhpLab\Rest\Base\BaseAction;
-use PhpLab\Rest\Libs\Serializer\JsonRestSerializer;
+use ZnCore\Base\Domain\Libs\DataProvider;
+use ZnLib\Rest\Base\BaseAction;
+use ZnLib\Rest\Libs\Serializer\JsonRestSerializer;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 class IndexAction extends BaseAction

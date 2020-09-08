@@ -1,13 +1,13 @@
 <?php
 
-namespace PhpLab\Rest\Contract\Authorization;
+namespace ZnLib\Rest\Contract\Authorization;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
-use PhpLab\Core\Enums\Http\HttpHeaderEnum;
-use PhpLab\Core\Enums\Http\HttpMethodEnum;
-use PhpLab\Core\Legacy\Yii\Helpers\FileHelper;
-use PhpLab\Core\Libs\Env\EnvConfigException;
+use ZnCore\Base\Enums\Http\HttpHeaderEnum;
+use ZnCore\Base\Enums\Http\HttpMethodEnum;
+use ZnCore\Base\Legacy\Yii\Helpers\FileHelper;
+use ZnCore\Base\Libs\Env\EnvConfigException;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\Cache\CacheItem;
 

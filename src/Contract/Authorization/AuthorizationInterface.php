@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpLab\Rest\Contract\Authorization;
+namespace ZnLib\Rest\Contract\Authorization;
 
 interface AuthorizationInterface
 {

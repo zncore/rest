@@ -1,12 +1,12 @@
 <?php
 
-namespace PhpLab\Rest\Helpers;
+namespace ZnLib\Rest\Helpers;
 
-use PhpLab\Core\Domain\Entities\DataProviderEntity;
-use PhpLab\Core\Enums\Http\HttpHeaderEnum;
-use PhpLab\Core\Legacy\Yii\Helpers\ArrayHelper;
-use PhpLab\Core\Legacy\Yii\Helpers\FileHelper;
-use PhpLab\Core\Libs\Store\Store;
+use ZnCore\Base\Domain\Entities\DataProviderEntity;
+use ZnCore\Base\Enums\Http\HttpHeaderEnum;
+use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
+use ZnCore\Base\Legacy\Yii\Helpers\FileHelper;
+use ZnCore\Base\Libs\Store\Store;
 use Psr\Http\Message\ResponseInterface;
 
 class RestResponseHelper

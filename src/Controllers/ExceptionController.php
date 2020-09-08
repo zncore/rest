@@ -1,9 +1,9 @@
 <?php
 
-namespace PhpLab\Rest\Controllers;
+namespace ZnLib\Rest\Controllers;
 
-use PhpLab\Rest\Helpers\RestHelper;
-use PhpLab\Rest\Libs\Serializer\JsonRestSerializer;
+use ZnLib\Rest\Helpers\RestHelper;
+use ZnLib\Rest\Libs\Serializer\JsonRestSerializer;
 use Symfony\Component\Debug\Exception\FlattenException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

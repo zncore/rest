@@ -1,13 +1,13 @@
 <?php
 
-namespace PhpLab\Rest\Helpers;
+namespace ZnLib\Rest\Helpers;
 
 use php7extension\yii\filters\Cors;
 use php7rails\app\helpers\EnvService;
-use PhpLab\Core\Enums\Http\HttpHeaderEnum;
-use PhpLab\Core\Enums\Http\HttpMethodEnum;
-use PhpLab\Core\Enums\Http\HttpServerEnum;
-use PhpLab\Core\Legacy\Yii\Helpers\ArrayHelper;
+use ZnCore\Base\Enums\Http\HttpHeaderEnum;
+use ZnCore\Base\Enums\Http\HttpMethodEnum;
+use ZnCore\Base\Enums\Http\HttpServerEnum;
+use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
 use Symfony\Component\HttpFoundation\Response;
 
 class CorsHelper

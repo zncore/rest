@@ -1,9 +1,9 @@
 <?php
 
-namespace PhpLab\Rest\Helpers;
+namespace ZnLib\Rest\Helpers;
 
-use PhpLab\Core\Enums\Http\HttpMethodEnum;
-use PhpLab\Core\Legacy\Yii\Helpers\Inflector;
+use ZnCore\Base\Enums\Http\HttpMethodEnum;
+use ZnCore\Base\Legacy\Yii\Helpers\Inflector;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 

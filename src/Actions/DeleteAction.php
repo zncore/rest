@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpLab\Rest\Actions;
+namespace ZnLib\Rest\Actions;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +14,7 @@ class DeleteAction extends BaseEntityAction
         try {
             $this->service->deleteById($this->id);
             $response->setStatusCode(Response::HTTP_NO_CONTENT);
-        } catch (\PhpLab\Core\Exceptions\NotFoundException $e) {
+        } catch (\ZnCore\Base\Exceptions\NotFoundException $e) {
             $response->setStatusCode(Response::HTTP_NOT_FOUND);
         }
         return $response;
