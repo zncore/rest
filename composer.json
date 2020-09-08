@@ -16,7 +16,9 @@
   "autoload": {
     "psr-4": {
       "PhpLab\\Rest\\": "src",
-      "PhpLab\\Rest\\Tests\\": "tests"
+      "PhpLab\\Rest\\Tests\\": "tests",
+      "ZnLib\\Rest\\": "src",
+      "ZnLib\\Rest\\Tests\\": "tests"
     }
   }
 }
