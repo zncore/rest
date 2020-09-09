@@ -2,9 +2,9 @@
 
 namespace ZnLib\Rest\Base;
 
-use ZnCore\Base\Domain\Helpers\QueryHelper;
-use ZnCore\Base\Domain\Libs\Query;
-use ZnCore\Base\Domain\Interfaces\Service\CrudServiceInterface;
+use ZnCore\Domain\Helpers\QueryHelper;
+use ZnCore\Domain\Libs\Query;
+use ZnCore\Domain\Interfaces\Service\CrudServiceInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 

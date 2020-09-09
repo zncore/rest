@@ -2,7 +2,7 @@
 
 namespace ZnLib\Rest\Actions;
 
-use ZnCore\Base\Domain\Exceptions\UnprocessibleEntityException;
+use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
 use ZnLib\Rest\Libs\Serializer\JsonRestSerializer;
 use ZnCore\Base\Exceptions\NotFoundException;
 use Symfony\Component\HttpFoundation\JsonResponse;

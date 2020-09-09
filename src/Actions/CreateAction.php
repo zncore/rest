@@ -2,7 +2,7 @@
 
 namespace ZnLib\Rest\Actions;
 
-use ZnCore\Base\Domain\Exceptions\UnprocessibleEntityException;
+use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
 use ZnLib\Rest\Base\BaseAction;
 use ZnLib\Rest\Libs\Serializer\JsonRestSerializer;
 use ZnCore\Base\Enums\Http\HttpHeaderEnum;
