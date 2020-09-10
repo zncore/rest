@@ -2,13 +2,9 @@
 
 namespace ZnLib\Rest\Helpers;
 
-use php7extension\yii\filters\Cors;
-use php7rails\app\helpers\EnvService;
 use ZnCore\Base\Enums\Http\HttpHeaderEnum;
 use ZnCore\Base\Enums\Http\HttpMethodEnum;
 use ZnCore\Base\Enums\Http\HttpServerEnum;
-use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
-use Symfony\Component\HttpFoundation\Response;
 
 class CorsHelper
 {
@@ -39,7 +35,6 @@ class CorsHelper
         return;
 
 
-
         $headers = self::generateHeaders();
         foreach ($headers as $headerKey => $headerValue) {
             header("$headerKey: $headerValue");
@@ -54,7 +49,7 @@ class CorsHelper
     private static function generateHeaders($forceOrigin = false): array
     {
         //$headers = ArrayHelper::getValue($_SERVER, HttpServerEnum::HTTP_ACCESS_CONTROL_REQUEST_HEADERS);
-        if(empty($headers)) {
+        if (empty($headers)) {
             $headers = implode(', ', HttpHeaderEnum::values());
             $headers = mb_strtolower($headers);
         }
