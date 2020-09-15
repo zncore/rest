@@ -8,7 +8,7 @@ use ZnCore\Base\Enums\Http\HttpHeaderEnum;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Yii;
 use yii\rest\Serializer as YiiSerializer;
-use yii2rails\extension\develop\helpers\Debug;
+use ZnSandbox\Sandbox\Develop\Helpers\Debug;
 
 class Serializer extends YiiSerializer
 {
