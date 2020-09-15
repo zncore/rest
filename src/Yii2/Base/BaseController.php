@@ -13,12 +13,9 @@ use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer as SymfonySerializer;
 use yii\base\Module;
 use yii\rest\Controller;
-use yii2rails\domain\traits\entity\BehaviorTrait;
 
 class BaseController extends Controller
 {
-
-    use BehaviorTrait;
 
     public function __construct(string $id, Module $module, array $config = [])
     {
