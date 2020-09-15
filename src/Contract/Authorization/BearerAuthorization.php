@@ -83,6 +83,7 @@ class BearerAuthorization implements AuthorizationInterface
         /** @var CacheItem $cacheItem */
         $cacheItem = $this->authCache->getItem('token_by_login_' . $this->currentAuth['login']);
         $cacheItem->set($authToken);
+        $cacheItem->expiresAfter(60);
         $this->authCache->save($cacheItem);
     }
 
