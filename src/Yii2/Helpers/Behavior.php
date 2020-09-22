@@ -6,7 +6,7 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 use yii2bundle\account\domain\v3\filters\auth\ConsoleAuth;
-use ZnBundle\User\Yii\Api\Filters\Auth\HttpTokenAuth;
+use ZnBundle\User\Yii2\Api\Filters\Auth\HttpTokenAuth;
 use ZnLib\Rest\Helpers\CorsHelper;
 
 class Behavior {
