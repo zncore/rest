@@ -1,6 +1,6 @@
 <?php
 
-namespace ZnLib\Rest\Actions;
+namespace ZnLib\Rest\Symfony4\Actions;
 
 use ZnLib\Rest\Libs\Serializer\JsonRestSerializer;
 use Symfony\Component\HttpFoundation\JsonResponse;

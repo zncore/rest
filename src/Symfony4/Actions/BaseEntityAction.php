@@ -1,14 +1,14 @@
 <?php
 
-namespace ZnLib\Rest\Actions;
+namespace ZnLib\Rest\Symfony4\Actions;
 
 use ZnCore\Domain\Interfaces\Service\CrudServiceInterface;
-use ZnLib\Rest\Base\BaseAction;
+use ZnLib\Rest\Symfony4\Base\BaseAction;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class BaseEntityAction
- * @package ZnLib\Rest\Actions
+ * @package ZnLib\Rest\Symfony4\Actions
  *
  * @property CrudServiceInterface $service
  */

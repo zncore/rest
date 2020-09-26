@@ -1,6 +1,6 @@
 <?php
 
-namespace ZnLib\Rest\Actions;
+namespace ZnLib\Rest\Symfony4\Actions;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;

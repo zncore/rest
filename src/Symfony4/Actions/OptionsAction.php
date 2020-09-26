@@ -1,8 +1,8 @@
 <?php
 
-namespace ZnLib\Rest\Actions;
+namespace ZnLib\Rest\Symfony4\Actions;
 
-use ZnLib\Rest\Base\BaseAction;
+use ZnLib\Rest\Symfony4\Base\BaseAction;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 class OptionsAction extends BaseAction

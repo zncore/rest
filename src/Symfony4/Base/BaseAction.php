@@ -1,6 +1,6 @@
 <?php
 
-namespace ZnLib\Rest\Base;
+namespace ZnLib\Rest\Symfony4\Base;
 
 use ZnCore\Domain\Helpers\QueryHelper;
 use ZnCore\Domain\Libs\Query;
@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class BaseAction
- * @package ZnLib\Rest\Actions
+ * @package ZnLib\Rest\Symfony4\Actions
  *
  * @property CrudServiceInterface $service
  */

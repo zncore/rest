@@ -3,8 +3,6 @@
 namespace ZnLib\Rest\Helpers;
 
 use Illuminate\Container\Container;
-use ZnCore\Base\Enums\Http\HttpStatusCodeEnum;
-use ZnLib\Rest\Entities\RouteEntity;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,6 +13,8 @@ use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\RouteCollection;
 use Throwable;
+use ZnCore\Base\Enums\Http\HttpStatusCodeEnum;
+use ZnLib\Rest\Entities\RouteEntity;
 
 class RestApiControllerHelper
 {
@@ -45,7 +45,8 @@ class RestApiControllerHelper
         return $response;
     }
 
-    public static function prepareContent(Request $request) {
+    public static function prepareContent(Request $request)
+    {
         if (0 === strpos($request->headers->get('Content-Type'), 'application/json')) {
             $data = json_decode($request->getContent(), true);
             $request->request->replace(is_array($data) ? $data : array());

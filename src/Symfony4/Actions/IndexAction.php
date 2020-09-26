@@ -1,9 +1,9 @@
 <?php
 
-namespace ZnLib\Rest\Actions;
+namespace ZnLib\Rest\Symfony4\Actions;
 
 use ZnCore\Domain\Libs\DataProvider;
-use ZnLib\Rest\Base\BaseAction;
+use ZnLib\Rest\Symfony4\Base\BaseAction;
 use ZnLib\Rest\Libs\Serializer\JsonRestSerializer;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
