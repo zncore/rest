@@ -4,6 +4,9 @@ namespace ZnLib\Rest\Contract\Authorization;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
+use Symfony\Component\Cache\Adapter\ArrayAdapter;
+use Symfony\Component\Cache\Adapter\NullAdapter;
+use Symfony\Component\Cache\Adapter\PhpArrayAdapter;
 use ZnCore\Base\Enums\Http\HttpHeaderEnum;
 use ZnCore\Base\Enums\Http\HttpMethodEnum;
 use ZnCore\Base\Legacy\Yii\Helpers\FileHelper;
@@ -26,7 +29,7 @@ class BearerAuthorization implements AuthorizationInterface
             throw new EnvConfigException('Empty env config for CACHE_DIRECTORY');
         }
         $cacheDirectory = FileHelper::path($_ENV['CACHE_DIRECTORY']);
-        $this->authCache = new FilesystemAdapter('test', 0, $cacheDirectory);
+        $this->authCache = new ArrayAdapter(60);
     }
 
     public function authByLogin(string $login, string $password = 'Wwwqqq111'): AuthorizationInterface
