@@ -5,6 +5,7 @@ namespace ZnLib\Rest\Helpers;
 use ZnCore\Base\Enums\Http\HttpHeaderEnum;
 use ZnCore\Base\Enums\Http\HttpMethodEnum;
 use ZnCore\Base\Enums\Http\HttpServerEnum;
+use ZnCore\Base\Helpers\EnumHelper;
 
 class CorsHelper
 {
@@ -50,13 +51,13 @@ class CorsHelper
     {
         //$headers = ArrayHelper::getValue($_SERVER, HttpServerEnum::HTTP_ACCESS_CONTROL_REQUEST_HEADERS);
         if (empty($headers)) {
-            $headers = implode(', ', HttpHeaderEnum::values());
+            $headers = implode(', ', EnumHelper::getValues(HttpMethodEnum::class));
             $headers = mb_strtolower($headers);
         }
         $headers = [
             HttpHeaderEnum::ACCESS_CONTROL_ALLOW_ORIGIN => $_SERVER['HTTP_ORIGIN'],
             HttpHeaderEnum::ACCESS_CONTROL_ALLOW_HEADERS => $headers,
-            HttpHeaderEnum::ACCESS_CONTROL_ALLOW_METHODS => implode(', ', HttpMethodEnum::values()),
+            HttpHeaderEnum::ACCESS_CONTROL_ALLOW_METHODS => implode(', ', EnumHelper::getValues(HttpMethodEnum::class)),
             HttpHeaderEnum::ACCESS_CONTROL_ALLOW_CREDENTIALS => 'true',
             /*
             HttpHeaderEnum::ACCESS_CONTROL_ALLOW_ORIGIN => ArrayHelper::getValue($_SERVER, HttpServerEnum::HTTP_ORIGIN),
