@@ -10,7 +10,7 @@ use Symfony\Component\Cache\Adapter\PhpArrayAdapter;
 use ZnCore\Base\Enums\Http\HttpHeaderEnum;
 use ZnCore\Base\Enums\Http\HttpMethodEnum;
 use ZnCore\Base\Legacy\Yii\Helpers\FileHelper;
-use ZnCore\Base\Libs\Env\EnvConfigException;
+use ZnCore\Base\Libs\DotEnv\EnvConfigException;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\Cache\CacheItem;
 
