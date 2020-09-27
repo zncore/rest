@@ -1,6 +1,6 @@
 <?php
 
-namespace ZnLib\Rest\Helpers;
+namespace ZnLib\Rest\Symfony4\Helpers;
 
 use Illuminate\Container\Container;
 use Psr\Container\ContainerInterface;
