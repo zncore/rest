@@ -19,20 +19,14 @@ use ZnLib\Rest\Entities\RouteEntity;
 class RestApiControllerHelper
 {
 
-    public static function send(RouteCollection $routeCollection, ContainerInterface $container, $context = '/')
+    /*public static function send(RouteCollection $routeCollection, ContainerInterface $container, $context = '/')
     {
         //$request = $request ?? Request::createFromGlobals();
         $response = self::run($routeCollection, $container, $context);
         $response->send();
-    }
+    }*/
 
     public static function run(RouteCollection $routeCollection, ContainerInterface $container, $context = '/'): Response
-    {
-        $response = RestApiControllerHelper::runAll($routeCollection, $container, $context);
-        return $response;
-    }
-
-    private static function runAll(RouteCollection $routeCollection, ContainerInterface $container, $context = '/'): Response
     {
         $request = $container->get(Request::class);
         try {
