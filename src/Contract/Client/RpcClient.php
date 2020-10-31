@@ -72,18 +72,11 @@ class RpcClient
         $body = [
             'data' => json_encode(EntityHelper::toArray($requestEntity)),
         ];
-        $refreshAuthToken = empty($authToken);
-        try {
-            $response = $this->sendRequest($body, $headers);
-        } catch (UnauthorizedException $e) {
-            if (is_object($this->authAgent) && $refreshAuthToken) {
-
-            }
+        $response = $this->sendRequest($body, $headers);
+        if($response instanceof RpcResponseErrorEntity && $response->getError()['code'] == HttpStatusCodeEnum::UNAUTHORIZED) {
+            //dd(1234);
         }
-        if($this->isStrictMode) {
-            $this->validResponse($response);
-        }
-        return $this->responseToRpcResponse($response);
+        return $response;
     }
 
     private function validResponse(ResponseInterface $response) {
@@ -96,7 +89,7 @@ class RpcClient
         }
     }
 
-    public function sendRequest(array $body = [], array $headers = []): ResponseInterface
+    public function sendRequest(array $body = [], array $headers = []): RpcResponseEntity
     {
         $options = [
             RequestOptions::FORM_PARAMS => $body,
@@ -110,10 +103,10 @@ class RpcClient
             if ($response == null) {
                 throw new \Exception('Url not found!');
             }
-            if ($response->getStatusCode() == HttpStatusCodeEnum::UNAUTHORIZED) {
-                throw new UnauthorizedException('', 0, $e);
-            }
         }
-        return $response;
+        if($this->isStrictMode) {
+            $this->validResponse($response);
+        }
+        return $this->responseToRpcResponse($response);
     }
 }
