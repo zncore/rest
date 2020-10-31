@@ -84,6 +84,9 @@ class RpcClient
             throw new \Exception('Status code is not 200');
         }
         $data = RestResponseHelper::getBody($response);
+        /*if(empty($data['jsonrpc'])) {
+            dd($data);
+        }*/
         if(version_compare($data['jsonrpc'], RpcVersionEnum::V2_0, '<')) {
             throw new \Exception('Unsupported RPC version');
         }
