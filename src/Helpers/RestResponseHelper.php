@@ -38,8 +38,9 @@ class RestResponseHelper
         return $data;
     }
 
-    public static function getBody(ResponseInterface $response, string $body)
+    public static function getBody(ResponseInterface $response, string $body = null)
     {
+        $response->getBody()->rewind();
         $contentTypeItems = self::extractHeaderValues($response, 'content-type');
         if($contentTypeItems) {
             $extension = self::mimeToFileExtension($contentTypeItems[0]);
@@ -50,6 +51,9 @@ class RestResponseHelper
             $extension = 'html';
         }
         $encoder = new Store($extension);
+        if($body == null) {
+            $body = $response->getBody()->getContents();
+        }
         $body = $encoder->decode($body);
         return $body;
     }
