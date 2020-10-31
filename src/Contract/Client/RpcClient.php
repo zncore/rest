@@ -79,7 +79,7 @@ class RpcClient
         return $response;
     }
 
-    private function validResponse(ResponseInterface $response) {
+    private function validateResponse(ResponseInterface $response) {
         if($response->getStatusCode() != HttpStatusCodeEnum::OK) {
             throw new \Exception('Status code is not 200');
         }
@@ -105,7 +105,7 @@ class RpcClient
             }
         }
         if($this->isStrictMode) {
-            $this->validResponse($response);
+            $this->validateResponse($response);
         }
         return $this->responseToRpcResponse($response);
     }
