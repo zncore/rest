@@ -73,21 +73,22 @@ class RpcClient
             'data' => json_encode(EntityHelper::toArray($requestEntity)),
         ];
         $response = $this->sendRequest($body, $headers);
-        if($response instanceof RpcResponseErrorEntity && $response->getError()['code'] == HttpStatusCodeEnum::UNAUTHORIZED) {
+        if ($response instanceof RpcResponseErrorEntity && $response->getError()['code'] == HttpStatusCodeEnum::UNAUTHORIZED) {
             //dd(1234);
         }
         return $response;
     }
 
-    private function validateResponse(ResponseInterface $response) {
-        if($response->getStatusCode() != HttpStatusCodeEnum::OK) {
+    private function validateResponse(ResponseInterface $response)
+    {
+        if ($response->getStatusCode() != HttpStatusCodeEnum::OK) {
             throw new \Exception('Status code is not 200');
         }
         $data = RestResponseHelper::getBody($response);
-        /*if(empty($data['jsonrpc'])) {
-            dd($data);
-        }*/
-        if(version_compare($data['jsonrpc'], RpcVersionEnum::V2_0, '<')) {
+        if (is_string($data)) {
+            throw new \Exception($data);
+        }
+        if (version_compare($data['jsonrpc'], RpcVersionEnum::V2_0, '<')) {
             throw new \Exception('Unsupported RPC version');
         }
     }
@@ -107,7 +108,7 @@ class RpcClient
                 throw new \Exception('Url not found!');
             }
         }
-        if($this->isStrictMode) {
+        if ($this->isStrictMode) {
             $this->validateResponse($response);
         }
         return $this->responseToRpcResponse($response);
