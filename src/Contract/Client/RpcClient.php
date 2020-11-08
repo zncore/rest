@@ -88,6 +88,9 @@ class RpcClient
         if (is_string($data)) {
             throw new \Exception($data);
         }
+        if (is_array($data) && empty($data['jsonrpc'])) {
+            throw new \Exception(json_encode($data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+        }
         if (version_compare($data['jsonrpc'], RpcVersionEnum::V2_0, '<')) {
             throw new \Exception('Unsupported RPC version');
         }
