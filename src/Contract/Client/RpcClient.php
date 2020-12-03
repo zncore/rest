@@ -69,9 +69,12 @@ class RpcClient
         if ($authToken) {
             $headers[HttpHeaderEnum::AUTHORIZATION] = $authToken;
         }
-        $body = [
-            'data' => json_encode(EntityHelper::toArray($requestEntity)),
-        ];
+//        $body = [
+//            'data' => json_encode(EntityHelper::toArray($requestEntity)),
+//        ];
+
+        $body = EntityHelper::toArray($requestEntity);
+
         $response = $this->sendRequest($body, $headers);
         if ($response instanceof RpcResponseErrorEntity && $response->getError()['code'] == HttpStatusCodeEnum::UNAUTHORIZED) {
             //dd(1234);
@@ -96,10 +99,10 @@ class RpcClient
         }
     }
 
-    public function sendRequest(array $body = [], array $headers = []): RpcResponseEntity
+    public function sendRequest(array $body, array $headers = []): RpcResponseEntity
     {
         $options = [
-            RequestOptions::FORM_PARAMS => $body,
+            RequestOptions::JSON => $body,
             RequestOptions::HEADERS => $headers,
         ];
         $options[RequestOptions::HEADERS]['Accept'] = $this->accept;
