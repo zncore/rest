@@ -24,11 +24,29 @@ class RpcClient
 {
 
     private $guzzleClient;
+
+    /**
+     * @return Client
+     */
+    public function getGuzzleClient(): Client
+    {
+        return $this->guzzleClient;
+    }
+
+
     private $isStrictMode = true;
     private $accept = 'application/json';
 
     /** @var AuthorizationInterface */
     private $authAgent;
+
+    /**
+     * @param Client $guzzleClient
+     */
+    public function setGuzzleClient(Client $guzzleClient): void
+    {
+        $this->guzzleClient = $guzzleClient;
+    }
 
     public function __construct(Client $guzzleClient, AuthorizationInterface $authAgent = null)
     {
