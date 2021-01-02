@@ -46,7 +46,6 @@ class RestResponseHelper
     
     public static function getBody(ResponseInterface $response, string $body = null)
     {
-        $response->getBody()->rewind();
         $contentTypeItems = self::extractHeaderValues($response, 'content-type');
         if($contentTypeItems) {
             $extension = self::mimeToFileExtension($contentTypeItems[0]);
