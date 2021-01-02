@@ -38,6 +38,12 @@ class RestResponseHelper
         return $data;
     }
 
+    public static function getRawBody(ResponseInterface $response): ?string
+    {
+        $response->getBody()->rewind();
+        return $response->getBody()->getContents();
+    }
+    
     public static function getBody(ResponseInterface $response, string $body = null)
     {
         $response->getBody()->rewind();
@@ -52,7 +58,7 @@ class RestResponseHelper
         }
         $encoder = new Store($extension);
         if($body == null) {
-            $body = $response->getBody()->getContents();
+            $body = self::getRawBody($response);
         }
         $body = $encoder->decode($body);
         return $body;
