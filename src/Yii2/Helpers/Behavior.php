@@ -7,6 +7,7 @@ use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 use yii2bundle\account\domain\v3\filters\auth\ConsoleAuth;
 use ZnBundle\User\Yii2\Api\Filters\Auth\HttpTokenAuth;
+use ZnCore\Base\Helpers\EnvHelper;
 use ZnLib\Rest\Helpers\CorsHelper;
 
 class Behavior {
@@ -16,15 +17,15 @@ class Behavior {
 	}
 	
 	static function auth($only = null) {
-		if(APP == CONSOLE) {
+		if(EnvHelper::isConsole()) {
 			return self::consoleAuth($only);
 		}
+		if(APP == FRONTEND || APP == BACKEND) {
+            return self::webAuth($only);
+        }
 		if(APP == API) {
 			return self::apiAuth($only);
 		}
-        if(APP == FRONTEND || APP == BACKEND) {
-            return self::webAuth($only);
-        }
 	}
 	
 	private static function consoleAuth($only = null) {
