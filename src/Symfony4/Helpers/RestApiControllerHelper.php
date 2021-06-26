@@ -14,6 +14,7 @@ use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\RouteCollection;
 use Throwable;
 use ZnCore\Base\Enums\Http\HttpStatusCodeEnum;
+use ZnCore\Base\Helpers\InstanceHelper;
 use ZnLib\Rest\Entities\RouteEntity;
 
 class RestApiControllerHelper
@@ -53,8 +54,11 @@ class RestApiControllerHelper
         $routeEntity = self::match($request, $routeCollection, $context);
         $callback = [$controllerInstance, $routeEntity->actionName];
         try {
-            $container = Container::getInstance();
-            $response = $container->call([$controllerInstance, $routeEntity->actionName], $routeEntity->actionParameters);
+
+            $response = InstanceHelper::callMethod($controllerInstance, $routeEntity->actionName, $routeEntity->actionParameters);
+
+//            $container = Container::getInstance();
+//            $response = $container->call([$controllerInstance, $routeEntity->actionName], $routeEntity->actionParameters);
 
             //$response = call_user_func_array($callback, $routeEntity->actionParameters);
         } catch (Throwable $e) {
