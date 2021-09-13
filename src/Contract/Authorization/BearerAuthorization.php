@@ -32,6 +32,16 @@ class BearerAuthorization implements AuthorizationInterface
         $this->authCache = new ArrayAdapter(60);
     }
 
+    public function getAuthUri(): string
+    {
+        return $this->authUri;
+    }
+
+    public function setAuthUri(string $authUri): void
+    {
+        $this->authUri = $authUri;
+    }
+
     public function authByLogin(string $login, string $password = 'Wwwqqq111'): AuthorizationInterface
     {
         $this->currentAuth = [
@@ -76,6 +86,7 @@ class BearerAuthorization implements AuthorizationInterface
         ];
         $response = $this->guzzleClient->request(HttpMethodEnum::POST, $this->authUri, $options);
         //$authToken = RestHelper::getBodyAttribute($response, 'token');
+        dd($this->guzzleClient);
         $authToken = $response->getHeader(HttpHeaderEnum::AUTHORIZATION)[0];
         $this->setAuthToken($authToken);
         return $authToken;
