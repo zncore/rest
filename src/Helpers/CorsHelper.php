@@ -12,32 +12,28 @@ class CorsHelper
 
     protected static function getAllowOrigin(): ?string
     {
-        $allowOrigins = null;
-        if (isset($_SERVER['HTTP_ORIGIN'])) {
-            // should do a check here to match $_SERVER['HTTP_ORIGIN'] to a whitelist of safe domains
-            if (!empty($_ENV['CORS_ORIGINS'])) {
-                if ($_ENV['CORS_ORIGINS'] == '*') {
-                    $allowOrigins = $_SERVER['HTTP_ORIGIN'];
-                } else {
-                    $origins = explode(',', $_ENV['CORS_ORIGINS']);
-                    if (in_array($_SERVER['HTTP_ORIGIN'], $origins)) {
-                        $allowOrigins = $_SERVER['HTTP_ORIGIN'];
-                    }
-                }
-            }
+        $clientOrigin = $_SERVER['HTTP_ORIGIN'] ?? null;
+        $envOrigins = $_ENV['CORS_ORIGINS'] ?? null;
+        if (empty($clientOrigin) || empty($envOrigins)) {
+            return null;
         }
-        return $allowOrigins;
+        // should do a check here to match $_SERVER['HTTP_ORIGIN'] to a whitelist of safe domains
+        $origins = explode(',', $envOrigins);
+        $isAllow = $envOrigins == '*' || in_array($clientOrigin, $origins);
+        if ($isAllow) {
+            return $clientOrigin;
+        }
     }
 
     public static function autoload($forceOrigin = false): void
     {
         // Allow from any origin
-        $allowOrigins = self::getAllowOrigin();
-        if (!$allowOrigins) {
+        $allowOrigin = self::getAllowOrigin();
+        if (!$allowOrigin) {
             return;
         }
 
-        self::header(HttpHeaderEnum::ACCESS_CONTROL_ALLOW_ORIGIN, $allowOrigins);
+        self::header(HttpHeaderEnum::ACCESS_CONTROL_ALLOW_ORIGIN, $allowOrigin);
         self::header(HttpHeaderEnum::ACCESS_CONTROL_ALLOW_CREDENTIALS, 'true');
         if (!empty($_ENV['CORS_MAX_AGE'])) {
             self::header(HttpHeaderEnum::ACCESS_CONTROL_MAX_AGE, $_ENV['CORS_MAX_AGE']);
