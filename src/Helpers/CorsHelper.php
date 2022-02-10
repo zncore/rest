@@ -12,8 +12,8 @@ class CorsHelper
 
     protected static function getAllowOrigin(): ?string
     {
-        $clientOrigin = $_SERVER['HTTP_ORIGIN'] ?? null;
-        $envOrigins = $_ENV['CORS_ORIGINS'] ?? null;
+        $clientOrigin = $_SERVER[HttpServerEnum::HTTP_ORIGIN] ?? null;
+        $envOrigins = $_ENV['CORS_ALLOW_ORIGINS'] ?? null;
         if (empty($clientOrigin) || empty($envOrigins)) {
             return null;
         }
@@ -40,11 +40,11 @@ class CorsHelper
         }
         // Access-Control headers are received during OPTIONS requests
         if ($_SERVER[HttpServerEnum::REQUEST_METHOD] == HttpMethodEnum::OPTIONS) {
-            if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD'])) {
+            if (isset($_SERVER[HttpServerEnum::HTTP_ACCESS_CONTROL_REQUEST_METHOD])) {
                 self::header(HttpHeaderEnum::ACCESS_CONTROL_ALLOW_METHODS, "GET, POST, PUT, DELETE, OPTIONS");
             }
-            if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS'])) {
-                self::header(HttpHeaderEnum::ACCESS_CONTROL_ALLOW_HEADERS, $_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']);
+            if (isset($_SERVER[HttpServerEnum::HTTP_ACCESS_CONTROL_REQUEST_HEADERS])) {
+                self::header(HttpHeaderEnum::ACCESS_CONTROL_ALLOW_HEADERS, $_SERVER[HttpServerEnum::HTTP_ACCESS_CONTROL_REQUEST_HEADERS]);
             }
             exit;
         }
