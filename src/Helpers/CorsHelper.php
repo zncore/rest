@@ -10,25 +10,28 @@ use ZnCore\Base\Helpers\EnumHelper;
 class CorsHelper
 {
 
-    protected static function getAllowOrigin(): ?string
+    protected static function getAllowOrigin(array $origins): ?string
     {
         $clientOrigin = $_SERVER[HttpServerEnum::HTTP_ORIGIN] ?? null;
-        $envOrigins = $_ENV['CORS_ALLOW_ORIGINS'] ?? null;
-        if (empty($clientOrigin) || empty($envOrigins)) {
+        if (empty($clientOrigin) || empty($origins)) {
             return null;
         }
         // should do a check here to match $_SERVER['HTTP_ORIGIN'] to a whitelist of safe domains
-        $origins = explode(',', $envOrigins);
-        $isAllow = $envOrigins == '*' || in_array($clientOrigin, $origins);
+        $isAllow = in_array('*', $origins) || in_array($clientOrigin, $origins);
         if ($isAllow) {
             return $clientOrigin;
         }
     }
 
-    public static function autoload($forceOrigin = false): void
+    public static function autoload(array $origins = null): void
     {
+        if(empty($origins)) {
+            $envOrigins = $_ENV['CORS_ALLOW_ORIGINS'] ?? null;
+            $origins = explode(',', $envOrigins);
+        }
+
         // Allow from any origin
-        $allowOrigin = self::getAllowOrigin();
+        $allowOrigin = self::getAllowOrigin($origins);
         if (!$allowOrigin) {
             return;
         }
