@@ -10,33 +10,51 @@ use ZnCore\Base\Helpers\EnumHelper;
 class CorsHelper
 {
 
-    public static function autoload($forceOrigin = false)
+    protected static function getAllowOrigin(): ?string
+    {
+        $allowOrigins = null;
+        if (isset($_SERVER['HTTP_ORIGIN'])) {
+            // should do a check here to match $_SERVER['HTTP_ORIGIN'] to a whitelist of safe domains
+            if (!empty($_ENV['CORS_ORIGINS'])) {
+                if ($_ENV['CORS_ORIGINS'] == '*') {
+                    $allowOrigins = $_SERVER['HTTP_ORIGIN'];
+                } else {
+                    $origins = explode(',', $_ENV['CORS_ORIGINS']);
+                    if (in_array($_SERVER['HTTP_ORIGIN'], $origins)) {
+                        $allowOrigins = $_SERVER['HTTP_ORIGIN'];
+                    }
+                }
+            }
+        }
+        return $allowOrigins;
+    }
+
+    public static function autoload($forceOrigin = false): void
     {
         // Allow from any origin
-        if (isset($_SERVER['HTTP_ORIGIN'])) {
-            // should do a check here to match $_SERVER['HTTP_ORIGIN'] to a
-            // whitelist of safe domains
-            header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
-            header('Access-Control-Allow-Credentials: true');
-            //header('Access-Control-Max-Age: 86400');    // cache for 1 day
+        $allowOrigins = self::getAllowOrigin();
+        if (!$allowOrigins) {
+            return;
         }
-// Access-Control headers are received during OPTIONS requests
-        if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
+        self::header(HttpHeaderEnum::ACCESS_CONTROL_ALLOW_ORIGIN, $allowOrigins);
+        self::header(HttpHeaderEnum::ACCESS_CONTROL_ALLOW_CREDENTIALS, 'true');
+        if (!empty($_ENV['CORS_MAX_AGE'])) {
+            self::header(HttpHeaderEnum::ACCESS_CONTROL_MAX_AGE, $_ENV['CORS_MAX_AGE']);
+        }
+        // Access-Control headers are received during OPTIONS requests
+        if ($_SERVER[HttpServerEnum::REQUEST_METHOD] == HttpMethodEnum::OPTIONS) {
             if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD'])) {
-                header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+                self::header(HttpHeaderEnum::ACCESS_CONTROL_ALLOW_METHODS, "GET, POST, PUT, DELETE, OPTIONS");
             }
-
             if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS'])) {
-                header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
+                self::header(HttpHeaderEnum::ACCESS_CONTROL_ALLOW_HEADERS, $_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']);
             }
-
             exit;
         }
-        return;
 
 
-        $headers = self::generateHeaders();
+        /*$headers = self::generateHeaders();
         foreach ($headers as $headerKey => $headerValue) {
             header("$headerKey: $headerValue");
         }
@@ -44,7 +62,12 @@ class CorsHelper
         //$response->sendHeaders();
         if ($_SERVER[HttpServerEnum::REQUEST_METHOD] == HttpMethodEnum::OPTIONS) {
             exit;
-        }
+        }*/
+    }
+
+    protected static function header($key, $value): void
+    {
+        header("$key: $value");
     }
 
     private static function generateHeaders($forceOrigin = false): array
