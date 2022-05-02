@@ -10,7 +10,7 @@ use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
 use ZnLib\Rest\Entities\ExceptionEntity;
 use ZnLib\Rest\Libs\Serializer\Handlers\TimeHandler;
 use ZnCore\Base\Exceptions\NotFoundException;
-use ZnBundle\User\Domain\Exceptions\UnauthorizedException;
+use ZnCore\Contract\User\Exceptions\UnauthorizedException;
 use ZnCore\Base\Enums\Http\HttpHeaderEnum;
 use Symfony\Component\Debug\Exception\FlattenException;
 use Symfony\Component\HttpFoundation\JsonResponse;
