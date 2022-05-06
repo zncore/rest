@@ -2,6 +2,7 @@
 
 namespace ZnLib\Rest\Helpers;
 
+use ZnCore\Base\Helpers\MimeTypeHelper;
 use ZnCore\Domain\Entities\DataProviderEntity;
 use ZnCore\Base\Enums\Http\HttpHeaderEnum;
 use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
@@ -48,7 +49,8 @@ class RestResponseHelper
     {
         $contentTypeItems = self::extractHeaderValues($response, 'content-type');
         if($contentTypeItems) {
-            $extension = self::mimeToFileExtension($contentTypeItems[0]);
+//            $extension = self::mimeToFileExtension($contentTypeItems[0]);
+            $extension = MimeTypeHelper::getExtensionByMime($contentTypeItems[0]);
         } else {
             $extension = null;
         }
@@ -74,12 +76,12 @@ class RestResponseHelper
         return $parts;
     }
 
-    private static function mimeToFileExtension(string $contentType, string $default = 'html'): string
+    /*private static function mimeToFileExtension(string $contentType, string $default = 'html'): string
     {
         $mimeTypes = include __DIR__ . '/../../../../zncore/base/src/Legacy/Yii/Helpers/mimeTypes.php';
         $mimeTypes = array_flip($mimeTypes);
         $extension = ArrayHelper::getValue($mimeTypes, $contentType, $default);
         return strtolower($extension);
-    }
+    }*/
 
 }
