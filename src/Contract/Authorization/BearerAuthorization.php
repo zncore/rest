@@ -13,6 +13,7 @@ use ZnCore\Base\Legacy\Yii\Helpers\FileHelper;
 use ZnCore\Base\Libs\DotEnv\EnvConfigException;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\Cache\CacheItem;
+use ZnCore\Base\Libs\FileSystem\Helpers\FilePathHelper;
 
 class BearerAuthorization implements AuthorizationInterface
 {
@@ -28,7 +29,7 @@ class BearerAuthorization implements AuthorizationInterface
         if (empty($_ENV['CACHE_DIRECTORY'])) {
             throw new EnvConfigException('Empty env config for CACHE_DIRECTORY');
         }
-        $cacheDirectory = FileHelper::path($_ENV['CACHE_DIRECTORY']);
+        $cacheDirectory = FilePathHelper::path($_ENV['CACHE_DIRECTORY']);
         $this->authCache = new ArrayAdapter(60);
     }
 
