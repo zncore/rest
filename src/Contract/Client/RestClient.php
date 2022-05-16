@@ -9,6 +9,7 @@ use GuzzleHttp\RequestOptions;
 use ZnCore\Base\Enums\Http\HttpHeaderEnum;
 use ZnCore\Base\Enums\Http\HttpMethodEnum;
 use ZnCore\Base\Enums\Http\HttpStatusCodeEnum;
+use ZnCore\Base\Helpers\DeprecateHelper;
 use ZnLib\Rest\Contract\Authorization\AuthorizationInterface;
 use Psr\Http\Message\ResponseInterface;
 
@@ -98,6 +99,7 @@ class RestClient
                     throw new \Exception('Url not found!');
                 }
                 if ($response->getStatusCode() == HttpStatusCodeEnum::UNAUTHORIZED && $refreshAuthToken) {
+                    DeprecateHelper::hardThrow();
                     $this->authAgent->authorization();
                     return $this->sendRequest($method, $uri, $options, false);
                 }

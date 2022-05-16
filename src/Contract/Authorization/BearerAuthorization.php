@@ -9,6 +9,7 @@ use Symfony\Component\Cache\Adapter\NullAdapter;
 use Symfony\Component\Cache\Adapter\PhpArrayAdapter;
 use ZnCore\Base\Enums\Http\HttpHeaderEnum;
 use ZnCore\Base\Enums\Http\HttpMethodEnum;
+use ZnCore\Base\Helpers\DeprecateHelper;
 use ZnCore\Base\Legacy\Yii\Helpers\FileHelper;
 use ZnCore\Base\Libs\DotEnv\EnvConfigException;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
@@ -60,6 +61,7 @@ class BearerAuthorization implements AuthorizationInterface
 
     public function getAuthToken(): ?string
     {
+        DeprecateHelper::hardThrow();
         if (empty($this->currentAuth['login'])) {
             return null;
         }
@@ -79,6 +81,7 @@ class BearerAuthorization implements AuthorizationInterface
 
     public function authorization()
     {
+        DeprecateHelper::hardThrow();
         $options = [
             RequestOptions::FORM_PARAMS => [
                 'login' => $this->currentAuth['login'],
@@ -95,11 +98,11 @@ class BearerAuthorization implements AuthorizationInterface
 
     protected function setAuthToken(string $authToken)
     {
+        DeprecateHelper::hardThrow();
         /** @var CacheItem $cacheItem */
         $cacheItem = $this->authCache->getItem('token_by_login_' . $this->currentAuth['login']);
         $cacheItem->set($authToken);
         $cacheItem->expiresAfter(60);
         $this->authCache->save($cacheItem);
     }
-
 }
