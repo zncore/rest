@@ -15,6 +15,7 @@ use Symfony\Component\Routing\RouteCollection;
 use Throwable;
 use ZnCore\Base\Enums\Http\HttpStatusCodeEnum;
 use ZnCore\Base\Helpers\InstanceHelper;
+use ZnCore\Base\Libs\Code\InstanceResolver;
 use ZnLib\Rest\Entities\RouteEntity;
 
 class RestApiControllerHelper
@@ -33,7 +34,7 @@ class RestApiControllerHelper
         try {
             $routeEntity = self::match($request, $routeCollection, $context);
             $controllerInstance = $container->get($routeEntity->controllerClassName);
-            $response = self::runController($controllerInstance, $request, $routeCollection);
+            $response = self::runController($controllerInstance, $request, $routeCollection, '/', $container);
         } catch (ResourceNotFoundException $e) {
             $response = self::getResponseByStatusCode(HttpStatusCodeEnum::NOT_FOUND);
         }
@@ -49,13 +50,16 @@ class RestApiControllerHelper
         }
     }
 
-    private static function runController(object $controllerInstance, Request $request, RouteCollection $routeCollection, $context = '/'): Response
+    private static function runController(object $controllerInstance, Request $request, RouteCollection $routeCollection, $context = '/', ContainerInterface $container): Response
     {
         $routeEntity = self::match($request, $routeCollection, $context);
         $callback = [$controllerInstance, $routeEntity->actionName];
         try {
 
-            $response = InstanceHelper::callMethod($controllerInstance, $routeEntity->actionName, $routeEntity->actionParameters);
+            $instanceResolver = new InstanceResolver($container);
+            $response = $instanceResolver->callMethod($controllerInstance, $routeEntity->actionName, $routeEntity->actionParameters);
+
+//            $response = InstanceHelper::callMethod($controllerInstance, $routeEntity->actionName, $routeEntity->actionParameters, $container);
 
 //            $container = Container::getInstance();
 //            $response = $container->call([$controllerInstance, $routeEntity->actionName], $routeEntity->actionParameters);
