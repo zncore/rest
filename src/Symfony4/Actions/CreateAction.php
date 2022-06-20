@@ -2,7 +2,7 @@
 
 namespace ZnLib\Rest\Symfony4\Actions;
 
-use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
+use ZnCore\Base\Libs\Validation\Exceptions\UnprocessibleEntityException;
 use ZnLib\Rest\Symfony4\Base\BaseAction;
 use ZnLib\Rest\Libs\Serializer\JsonRestSerializer;
 use ZnCore\Base\Enums\Http\HttpHeaderEnum;
