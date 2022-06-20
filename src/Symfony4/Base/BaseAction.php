@@ -2,11 +2,12 @@
 
 namespace ZnLib\Rest\Symfony4\Base;
 
-use ZnCore\Domain\Helpers\QueryHelper;
-use ZnCore\Domain\Libs\Query;
+use ZnCore\Base\Libs\Query\Helpers\QueryHelper;
+use ZnCore\Base\Libs\Query\Entities\Query;
 use ZnCore\Domain\Interfaces\Service\CrudServiceInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use ZnLib\Web\Helpers\WebQueryHelper;
 
 /**
  * Class BaseAction
@@ -37,7 +38,7 @@ abstract class BaseAction
 
     private function forgeQueryFromRequest(Request $request)
     {
-        return QueryHelper::getAllParams($request->query->all());
+        return WebQueryHelper::getAllParams($request->query->all());
     }
 
 }

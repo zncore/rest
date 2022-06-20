@@ -2,8 +2,8 @@
 
 namespace ZnLib\Rest\Yii2;
 
-use ZnCore\Domain\Entities\DataProviderEntity;
-use ZnCore\Domain\Libs\DataProvider;
+use ZnCore\Base\Libs\DataProvider\Entities\DataProviderEntity;
+use ZnCore\Base\Libs\DataProvider\Libs\DataProvider;
 use ZnCore\Base\Enums\Http\HttpHeaderEnum;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Yii;

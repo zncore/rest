@@ -5,7 +5,7 @@ namespace ZnLib\Rest\Libs\Serializer;
 use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
 use ZnCore\Base\Libs\Serializer\Handlers\ArrayHandler;
 use ZnCore\Base\Libs\Serializer\Handlers\ObjectHandler;
-use ZnCore\Domain\Entities\DataProviderEntity;
+use ZnCore\Base\Libs\DataProvider\Entities\DataProviderEntity;
 use ZnCore\Base\Libs\Validation\Exceptions\UnprocessibleEntityException;
 use ZnLib\Rest\Entities\ExceptionEntity;
 use ZnLib\Rest\Libs\Serializer\Handlers\TimeHandler;

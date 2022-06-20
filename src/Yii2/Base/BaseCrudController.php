@@ -2,12 +2,13 @@
 
 namespace ZnLib\Rest\Yii2\Base;
 
-use ZnCore\Domain\Helpers\QueryHelper;
+use ZnCore\Base\Libs\Query\Helpers\QueryHelper;
 use ZnCore\Domain\Interfaces\Service\CrudServiceInterface;
 use ZnCore\Base\Enums\Http\HttpHeaderEnum;
 use ZnCore\Base\Exceptions\NotFoundException;
 use Yii;
 use yii\web\NotFoundHttpException;
+use ZnLib\Web\Helpers\WebQueryHelper;
 
 class BaseCrudController extends BaseController
 {
@@ -33,7 +34,7 @@ class BaseCrudController extends BaseController
     public function actionIndex()
     {
         $queryParams = Yii::$app->request->get();
-        $query = QueryHelper::getAllParams($queryParams);
+        $query = WebQueryHelper::getAllParams($queryParams);
         return $this->service->getDataProvider($query);
     }
 
@@ -41,7 +42,7 @@ class BaseCrudController extends BaseController
     {
         $queryParams = Yii::$app->request->get();
         unset($queryParams['id']);
-        $query = QueryHelper::getAllParams($queryParams);
+        $query = WebQueryHelper::getAllParams($queryParams);
         try {
             return $this->service->oneById($id, $query);
         } catch (NotFoundException $e) {
