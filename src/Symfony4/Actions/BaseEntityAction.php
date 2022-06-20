@@ -2,7 +2,7 @@
 
 namespace ZnLib\Rest\Symfony4\Actions;
 
-use ZnCore\Domain\Interfaces\Service\CrudServiceInterface;
+use ZnCore\Base\Libs\Service\Interfaces\CrudServiceInterface;
 use ZnLib\Rest\Symfony4\Base\BaseAction;
 use Symfony\Component\HttpFoundation\Request;
 

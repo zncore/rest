@@ -3,7 +3,7 @@
 namespace ZnLib\Rest\Yii2\Base;
 
 use ZnCore\Base\Libs\Query\Helpers\QueryHelper;
-use ZnCore\Domain\Interfaces\Service\CrudServiceInterface;
+use ZnCore\Base\Libs\Service\Interfaces\CrudServiceInterface;
 use ZnCore\Base\Enums\Http\HttpHeaderEnum;
 use ZnCore\Base\Exceptions\NotFoundException;
 use Yii;

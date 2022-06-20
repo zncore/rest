@@ -4,7 +4,7 @@ namespace ZnLib\Rest\Symfony4\Base;
 
 use ZnCore\Base\Libs\Query\Helpers\QueryHelper;
 use ZnCore\Base\Libs\Query\Entities\Query;
-use ZnCore\Domain\Interfaces\Service\CrudServiceInterface;
+use ZnCore\Base\Libs\Service\Interfaces\CrudServiceInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use ZnLib\Web\Helpers\WebQueryHelper;

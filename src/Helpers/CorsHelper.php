@@ -5,7 +5,7 @@ namespace ZnLib\Rest\Helpers;
 use ZnCore\Base\Enums\Http\HttpHeaderEnum;
 use ZnCore\Base\Enums\Http\HttpMethodEnum;
 use ZnCore\Base\Enums\Http\HttpServerEnum;
-use ZnCore\Base\Helpers\EnumHelper;
+use ZnCore\Base\Libs\Enum\Helpers\EnumHelper;
 
 class CorsHelper
 {
