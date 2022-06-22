@@ -11,7 +11,7 @@ use ZnCore\Base\Enums\Http\HttpHeaderEnum;
 use ZnCore\Base\Enums\Http\HttpMethodEnum;
 use ZnCore\Base\Helpers\DeprecateHelper;
 use ZnCore\Base\Legacy\Yii\Helpers\FileHelper;
-use ZnCore\Base\Libs\DotEnv\EnvConfigException;
+use ZnCore\Base\Libs\DotEnv\Exceptions\EnvConfigException;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\Cache\CacheItem;
 use ZnCore\Base\Libs\FileSystem\Helpers\FilePathHelper;
