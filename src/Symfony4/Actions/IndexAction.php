@@ -2,7 +2,7 @@
 
 namespace ZnLib\Rest\Symfony4\Actions;
 
-use ZnCore\Base\Libs\DataProvider\Libs\DataProvider;
+use ZnCore\Domain\DataProvider\Libs\DataProvider;
 use ZnLib\Rest\Symfony4\Base\BaseAction;
 use ZnLib\Rest\Libs\Serializer\JsonRestSerializer;
 use Symfony\Component\HttpFoundation\JsonResponse;

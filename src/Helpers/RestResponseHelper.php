@@ -3,7 +3,7 @@
 namespace ZnLib\Rest\Helpers;
 
 use ZnCore\Base\Libs\FileSystem\Helpers\MimeTypeHelper;
-use ZnCore\Base\Libs\DataProvider\Entities\DataProviderEntity;
+use ZnCore\Domain\DataProvider\Entities\DataProviderEntity;
 use ZnCore\Base\Enums\Http\HttpHeaderEnum;
 use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
 use ZnCore\Base\Legacy\Yii\Helpers\FileHelper;
