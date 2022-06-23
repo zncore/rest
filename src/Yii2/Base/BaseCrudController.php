@@ -4,8 +4,8 @@ namespace ZnLib\Rest\Yii2\Base;
 
 use ZnCore\Domain\Query\Helpers\QueryHelper;
 use ZnCore\Domain\Service\Interfaces\CrudServiceInterface;
-use ZnCore\Base\Enums\Http\HttpHeaderEnum;
-use ZnCore\Base\Exceptions\NotFoundException;
+use ZnCore\Base\Libs\Http\Enums\HttpHeaderEnum;
+use ZnCore\Domain\Entity\Exceptions\NotFoundException;
 use Yii;
 use yii\web\NotFoundHttpException;
 use ZnLib\Web\Helpers\WebQueryHelper;

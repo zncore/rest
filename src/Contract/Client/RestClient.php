@@ -6,10 +6,10 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\RequestOptions;
-use ZnCore\Base\Enums\Http\HttpHeaderEnum;
-use ZnCore\Base\Enums\Http\HttpMethodEnum;
-use ZnCore\Base\Enums\Http\HttpStatusCodeEnum;
-use ZnCore\Base\Helpers\DeprecateHelper;
+use ZnCore\Base\Libs\Http\Enums\HttpHeaderEnum;
+use ZnCore\Base\Libs\Http\Enums\HttpMethodEnum;
+use ZnCore\Base\Libs\Http\Enums\HttpStatusCodeEnum;
+use ZnCore\Base\Libs\Develop\Helpers\DeprecateHelper;
 use ZnLib\Rest\Contract\Authorization\AuthorizationInterface;
 use Psr\Http\Message\ResponseInterface;
 

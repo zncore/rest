@@ -16,7 +16,7 @@ class ViewAction extends BaseEntityAction
             $entity = $this->service->oneById($this->id, $this->query);
             $serializer = new JsonRestSerializer($response);
             $serializer->serialize($entity);
-        } catch (\ZnCore\Base\Exceptions\NotFoundException $e) {
+        } catch (\ZnCore\Domain\Entity\Exceptions\NotFoundException $e) {
             $response->setStatusCode(Response::HTTP_NOT_FOUND);
         }
         return $response;
