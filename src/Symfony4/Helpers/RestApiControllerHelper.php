@@ -13,9 +13,9 @@ use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\RouteCollection;
 use Throwable;
-use ZnCore\Base\Libs\Http\Enums\HttpStatusCodeEnum;
-use ZnCore\Base\Libs\Instance\Helpers\InstanceHelper;
-use ZnCore\Base\Libs\Instance\Libs\Resolvers\InstanceResolver;
+use ZnCore\Base\Http\Enums\HttpStatusCodeEnum;
+use ZnCore\Base\Instance\Helpers\InstanceHelper;
+use ZnCore\Base\Instance\Libs\Resolvers\InstanceResolver;
 use ZnLib\Rest\Entities\RouteEntity;
 
 class RestApiControllerHelper

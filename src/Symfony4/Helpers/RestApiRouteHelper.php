@@ -2,8 +2,8 @@
 
 namespace ZnLib\Rest\Helpers;
 
-use ZnCore\Base\Libs\Http\Enums\HttpMethodEnum;
-use ZnCore\Base\Libs\Text\Helpers\Inflector;
+use ZnCore\Base\Http\Enums\HttpMethodEnum;
+use ZnCore\Base\Text\Helpers\Inflector;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 

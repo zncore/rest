@@ -2,7 +2,7 @@
 
 namespace ZnLib\Rest\Symfony4\Actions;
 
-use ZnCore\Base\Libs\Validation\Exceptions\UnprocessibleEntityException;
+use ZnCore\Base\Validation\Exceptions\UnprocessibleEntityException;
 use ZnLib\Rest\Libs\Serializer\JsonRestSerializer;
 use ZnCore\Domain\Entity\Exceptions\NotFoundException;
 use Symfony\Component\HttpFoundation\JsonResponse;

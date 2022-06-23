@@ -3,8 +3,8 @@
 namespace ZnLib\Rest\Libs\Serializer\Handlers;
 
 use DateTime;
-use ZnCore\Base\Libs\Serializer\ArraySerializer;
-use ZnCore\Base\Libs\Serializer\Handlers\SerializerHandlerInterface;
+use ZnCore\Base\Serializer\ArraySerializer;
+use ZnCore\Base\Serializer\Handlers\SerializerHandlerInterface;
 
 class TimeHandler implements SerializerHandlerInterface
 {

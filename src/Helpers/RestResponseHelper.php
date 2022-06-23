@@ -3,9 +3,9 @@
 namespace ZnLib\Rest\Helpers;
 
 use Psr\Http\Message\ResponseInterface;
-use ZnCore\Base\Libs\FileSystem\Helpers\MimeTypeHelper;
-use ZnCore\Base\Libs\Http\Enums\HttpHeaderEnum;
-use ZnCore\Base\Libs\Store\Store;
+use ZnCore\Base\FileSystem\Helpers\MimeTypeHelper;
+use ZnCore\Base\Http\Enums\HttpHeaderEnum;
+use ZnCore\Base\Store\Store;
 use ZnCore\Domain\DataProvider\Entities\DataProviderEntity;
 
 class RestResponseHelper

@@ -2,16 +2,16 @@
 
 namespace ZnLib\Rest\Libs\Serializer;
 
-use ZnCore\Base\Libs\Arr\Helpers\ArrayHelper;
-use ZnCore\Base\Libs\Serializer\Handlers\ArrayHandler;
-use ZnCore\Base\Libs\Serializer\Handlers\ObjectHandler;
+use ZnCore\Base\Arr\Helpers\ArrayHelper;
+use ZnCore\Base\Serializer\Handlers\ArrayHandler;
+use ZnCore\Base\Serializer\Handlers\ObjectHandler;
 use ZnCore\Domain\DataProvider\Entities\DataProviderEntity;
-use ZnCore\Base\Libs\Validation\Exceptions\UnprocessibleEntityException;
+use ZnCore\Base\Validation\Exceptions\UnprocessibleEntityException;
 use ZnLib\Rest\Entities\ExceptionEntity;
 use ZnLib\Rest\Libs\Serializer\Handlers\TimeHandler;
 use ZnCore\Domain\Entity\Exceptions\NotFoundException;
 use ZnCore\Contract\User\Exceptions\UnauthorizedException;
-use ZnCore\Base\Libs\Http\Enums\HttpHeaderEnum;
+use ZnCore\Base\Http\Enums\HttpHeaderEnum;
 use Symfony\Component\Debug\Exception\FlattenException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;

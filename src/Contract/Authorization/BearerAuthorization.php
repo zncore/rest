@@ -6,11 +6,11 @@ use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
 use Symfony\Component\Cache\Adapter\ArrayAdapter;
 use Symfony\Component\Cache\CacheItem;
-use ZnCore\Base\Libs\Develop\Helpers\DeprecateHelper;
-use ZnCore\Base\Libs\DotEnv\Domain\Exceptions\EnvConfigException;
-use ZnCore\Base\Libs\FileSystem\Helpers\FilePathHelper;
-use ZnCore\Base\Libs\Http\Enums\HttpHeaderEnum;
-use ZnCore\Base\Libs\Http\Enums\HttpMethodEnum;
+use ZnCore\Base\Develop\Helpers\DeprecateHelper;
+use ZnCore\Base\DotEnv\Domain\Exceptions\EnvConfigException;
+use ZnCore\Base\FileSystem\Helpers\FilePathHelper;
+use ZnCore\Base\Http\Enums\HttpHeaderEnum;
+use ZnCore\Base\Http\Enums\HttpMethodEnum;
 
 class BearerAuthorization implements AuthorizationInterface
 {

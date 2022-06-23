@@ -4,7 +4,7 @@ namespace ZnLib\Rest\Yii2;
 
 use ZnCore\Domain\DataProvider\Entities\DataProviderEntity;
 use ZnCore\Domain\DataProvider\Libs\DataProvider;
-use ZnCore\Base\Libs\Http\Enums\HttpHeaderEnum;
+use ZnCore\Base\Http\Enums\HttpHeaderEnum;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Yii;
 use yii\rest\Serializer as YiiSerializer;
@@ -56,7 +56,7 @@ class Serializer extends YiiSerializer
     {
         $this->addRuntimeHeader();
         //Yii::$app->response->format = Response::FORMAT_JSON;
-        //Yii::$app->response->headers->add(\ZnCore\Base\Libs\Http\Enums\HttpHeaderEnum::CONTENT_TYPE, 'application/json');
+        //Yii::$app->response->headers->add(\ZnCore\Base\Http\Enums\HttpHeaderEnum::CONTENT_TYPE, 'application/json');
         if ($data instanceof DataProvider) {
             $dataProviderEntity = $data->getAll();
             $data = $dataProviderEntity->getCollection();
