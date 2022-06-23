@@ -2,7 +2,7 @@
 
 namespace ZnLib\Rest\Libs\Serializer;
 
-use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
+use ZnCore\Base\Libs\Arr\Helpers\ArrayHelper;
 use ZnCore\Base\Libs\Serializer\Handlers\ArrayHandler;
 use ZnCore\Base\Libs\Serializer\Handlers\ObjectHandler;
 use ZnCore\Domain\DataProvider\Entities\DataProviderEntity;

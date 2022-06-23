@@ -2,13 +2,11 @@
 
 namespace ZnLib\Rest\Helpers;
 
-use ZnCore\Base\Libs\FileSystem\Helpers\MimeTypeHelper;
-use ZnCore\Domain\DataProvider\Entities\DataProviderEntity;
-use ZnCore\Base\Libs\Http\Enums\HttpHeaderEnum;
-use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
-use ZnCore\Base\Legacy\Yii\Helpers\FileHelper;
-use ZnCore\Base\Libs\Store\Store;
 use Psr\Http\Message\ResponseInterface;
+use ZnCore\Base\Libs\FileSystem\Helpers\MimeTypeHelper;
+use ZnCore\Base\Libs\Http\Enums\HttpHeaderEnum;
+use ZnCore\Base\Libs\Store\Store;
+use ZnCore\Domain\DataProvider\Entities\DataProviderEntity;
 
 class RestResponseHelper
 {
@@ -44,11 +42,11 @@ class RestResponseHelper
         $response->getBody()->rewind();
         return $response->getBody()->getContents();
     }
-    
+
     public static function getBody(ResponseInterface $response, string $body = null)
     {
         $contentTypeItems = self::extractHeaderValues($response, 'content-type');
-        if($contentTypeItems) {
+        if ($contentTypeItems) {
 //            $extension = self::mimeToFileExtension($contentTypeItems[0]);
             $extension = MimeTypeHelper::getExtensionByMime($contentTypeItems[0]);
         } else {
@@ -58,7 +56,7 @@ class RestResponseHelper
             $extension = 'html';
         }
         $encoder = new Store($extension);
-        if($body == null) {
+        if ($body == null) {
             $body = self::getRawBody($response);
         }
         $body = $encoder->decode($body);

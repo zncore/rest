@@ -5,16 +5,12 @@ namespace ZnLib\Rest\Contract\Authorization;
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
 use Symfony\Component\Cache\Adapter\ArrayAdapter;
-use Symfony\Component\Cache\Adapter\NullAdapter;
-use Symfony\Component\Cache\Adapter\PhpArrayAdapter;
+use Symfony\Component\Cache\CacheItem;
+use ZnCore\Base\Libs\Develop\Helpers\DeprecateHelper;
+use ZnCore\Base\Libs\DotEnv\Domain\Exceptions\EnvConfigException;
+use ZnCore\Base\Libs\FileSystem\Helpers\FilePathHelper;
 use ZnCore\Base\Libs\Http\Enums\HttpHeaderEnum;
 use ZnCore\Base\Libs\Http\Enums\HttpMethodEnum;
-use ZnCore\Base\Libs\Develop\Helpers\DeprecateHelper;
-use ZnCore\Base\Legacy\Yii\Helpers\FileHelper;
-use ZnCore\Base\Libs\DotEnv\Domain\Exceptions\EnvConfigException;
-use Symfony\Component\Cache\Adapter\FilesystemAdapter;
-use Symfony\Component\Cache\CacheItem;
-use ZnCore\Base\Libs\FileSystem\Helpers\FilePathHelper;
 
 class BearerAuthorization implements AuthorizationInterface
 {
