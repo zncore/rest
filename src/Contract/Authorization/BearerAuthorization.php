@@ -9,8 +9,8 @@ use Symfony\Component\Cache\CacheItem;
 use ZnCore\Base\Develop\Helpers\DeprecateHelper;
 use ZnCore\Base\DotEnv\Domain\Exceptions\EnvConfigException;
 use ZnCore\Base\FileSystem\Helpers\FilePathHelper;
-use ZnCore\Base\Http\Enums\HttpHeaderEnum;
-use ZnCore\Base\Http\Enums\HttpMethodEnum;
+use ZnLib\Components\Http\Enums\HttpHeaderEnum;
+use ZnLib\Components\Http\Enums\HttpMethodEnum;
 
 class BearerAuthorization implements AuthorizationInterface
 {

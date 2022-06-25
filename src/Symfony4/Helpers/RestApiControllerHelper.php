@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\RouteCollection;
 use Throwable;
-use ZnCore\Base\Http\Enums\HttpStatusCodeEnum;
+use ZnLib\Components\Http\Enums\HttpStatusCodeEnum;
 use ZnCore\Base\Instance\Helpers\InstanceHelper;
 use ZnCore\Base\Instance\Libs\Resolvers\InstanceResolver;
 use ZnLib\Rest\Entities\RouteEntity;

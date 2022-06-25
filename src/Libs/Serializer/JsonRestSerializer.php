@@ -11,7 +11,7 @@ use ZnLib\Rest\Entities\ExceptionEntity;
 use ZnLib\Rest\Libs\Serializer\Handlers\TimeHandler;
 use ZnCore\Domain\Entity\Exceptions\NotFoundException;
 use ZnCore\Contract\User\Exceptions\UnauthorizedException;
-use ZnCore\Base\Http\Enums\HttpHeaderEnum;
+use ZnLib\Components\Http\Enums\HttpHeaderEnum;
 use Symfony\Component\Debug\Exception\FlattenException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
