@@ -8,7 +8,7 @@ use ZnLib\Components\Http\Enums\HttpHeaderEnum;
 use ZnCore\Domain\Entity\Exceptions\NotFoundException;
 use Yii;
 use yii\web\NotFoundHttpException;
-use ZnLib\Web\Components\Controller\Helpers\WebQueryHelper;
+use ZnLib\Web\Controller\Helpers\WebQueryHelper;
 
 class BaseCrudController extends BaseController
 {

@@ -7,7 +7,7 @@ use ZnCore\Domain\Query\Entities\Query;
 use ZnCore\Domain\Service\Interfaces\CrudServiceInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use ZnLib\Web\Components\Controller\Helpers\WebQueryHelper;
+use ZnLib\Web\Controller\Helpers\WebQueryHelper;
 
 /**
  * Class BaseAction
