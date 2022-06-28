@@ -3,10 +3,14 @@
 namespace ZnLib\Rest\Helpers;
 
 use Psr\Http\Message\ResponseInterface;
+use ZnCore\Base\Develop\Helpers\DeprecateHelper;
 use ZnCore\Base\FileSystem\Helpers\MimeTypeHelper;
 use ZnLib\Components\Http\Enums\HttpHeaderEnum;
 use ZnLib\Components\Store\Store;
 use ZnCore\Domain\DataProvider\Entities\DataProviderEntity;
+
+DeprecateHelper::hardThrow();
+
 
 class RestResponseHelper
 {
