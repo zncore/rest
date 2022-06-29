@@ -2,10 +2,13 @@
 
 namespace ZnLib\Rest\Helpers;
 
+use ZnCore\Base\Develop\Helpers\DeprecateHelper;
 use ZnLib\Components\Http\Enums\HttpHeaderEnum;
 use ZnLib\Components\Http\Enums\HttpMethodEnum;
 use ZnLib\Components\Http\Enums\HttpServerEnum;
 use ZnCore\Base\Enum\Helpers\EnumHelper;
+
+DeprecateHelper::hardThrow();
 
 class CorsHelper
 {
