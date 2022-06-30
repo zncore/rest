@@ -13,7 +13,7 @@ class ViewAction extends BaseEntityAction
     {
         $response = new JsonResponse;
         try {
-            $entity = $this->service->oneById($this->id, $this->query);
+            $entity = $this->service->findOneById($this->id, $this->query);
             $serializer = new JsonRestSerializer($response);
             $serializer->serialize($entity);
         } catch (\ZnCore\Domain\Entity\Exceptions\NotFoundException $e) {

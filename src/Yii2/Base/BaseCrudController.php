@@ -44,7 +44,7 @@ class BaseCrudController extends BaseController
         unset($queryParams['id']);
         $query = WebQueryHelper::getAllParams($queryParams);
         try {
-            return $this->service->oneById($id, $query);
+            return $this->service->findOneById($id, $query);
         } catch (NotFoundException $e) {
             throw new NotFoundHttpException();
         }
