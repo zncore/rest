@@ -2,7 +2,7 @@
 
 namespace ZnLib\Rest\Symfony4\Helpers;
 
-use Illuminate\Container\Container;
+use ZnCore\Base\Container\Libs\Container;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
